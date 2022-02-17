@@ -40,6 +40,9 @@ bindsym $mod+t exec --no-startup-id telegram-desktop && sleep 0.2s && i3-msg mov
 
 bindsym $mod+u exec --no-startup-id qbittorrent && sleep 0.2s && ir-msg move container to workspace 4; workspace number 4
 
+
+bindsym $mod+n exec --no-startup-id ~/diff/standard-notes-3.11.0-linux-x86_64.AppImage && sleep 0.2s && i3-msg move container to workspace 4; workspace number 4
+
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
