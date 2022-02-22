@@ -8,7 +8,7 @@ new_float none
 
 exec --no-startup-id crow
 exec --no-startup-id alsactl init
-exec_always --no-startup-id nitrogen --restore &
+exec_always --no-startup-id betterlockscreen -w dim
 
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
