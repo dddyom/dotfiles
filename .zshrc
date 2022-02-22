@@ -85,10 +85,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias nv="nvim"
 alias off="shutdown now"
-alias upd="pacman -Suy"
+alias upd="sudo pacman -Suy"
 alias l="ls -la"
 alias c="clear"
-alias r="ranger"
+alias ra="ranger"
+alias sp="spotify_player" 
+alias q="exit"
+alias gconf="cd ~/.config"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -104,4 +107,5 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then exec startx > ~/.Xoutput 2>&1
+fi
