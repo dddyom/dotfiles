@@ -91,7 +91,7 @@ alias c="clear"
 alias ra="ranger"
 alias sp="spotify_player" 
 alias q="exit"
-alias gconf="cd ~/.config"
+alias gco="cd ~/.config"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

@@ -2,7 +2,7 @@
 
 set -o noclobber -o noglob -o nounset -o pipefail
 IFS=$'\n'
-
+export HIGHLIGHT_STYLE=Zenburn
 ## If the option `use_preview_script` is set to `true`,
 ## then this script will be called and its output will be displayed in ranger.
 ## ANSI color codes are supported.
