@@ -20,6 +20,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
+Plug 'mhinz/vim-startify'
+
 Plug 'matveyt/neoclip'
 Plug 'preservim/nerdtree'
 Plug 'chrisbra/vim-commentary'

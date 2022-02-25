@@ -91,7 +91,8 @@ alias c="clear"
 alias ra="ranger"
 alias sp="spotify_player" 
 alias q="exit"
-alias gco="cd ~/.config"
+alias gdot="cd ~/diff/dotfiles"
+alias gn = "cd ~/notes/"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -109,3 +110,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then exec startx > ~/.Xoutput 2>&1
 fi
+
+mdn() { pandoc "$1" | lynx -stdin; }
