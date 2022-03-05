@@ -14,34 +14,30 @@ set encoding=UTF-8
 set scrolloff=7
 call plug#begin()
 
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'L3MON4D3/LuaSnip'
-
 Plug 'mhinz/vim-startify'
 
 Plug 'matveyt/neoclip'
 Plug 'preservim/nerdtree'
-Plug 'chrisbra/vim-commentary'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tyru/caw.vim'
 Plug 'ap/vim-css-color'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'akinsho/toggleterm.nvim'
 
+Plug 'dylanaraps/wal.vim'
 
 call plug#end()
 
 
-let g:gruvbox_contrast_dark= 'hard'
-let g:gruvbox_contrast_light= 'hard'
-let g:gruvbox_italicize_comments= 1
+" let g:gruvbox_contrast_dark= 'hard'
+" let g:gruvbox_contrast_light= 'hard'
+" let g:gruvbox_italicize_comments= 1
+" colorscheme gruvbox
 
+colorscheme wal
 
-colorscheme gruvbox
 nnoremap <C-]> :set background=dark<CR>
 nnoremap <C-p> :set background=light<CR>
 
@@ -55,8 +51,7 @@ nnoremap <C-t> :NERDTreeToggle %<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " comment
-nmap <C-_> gcc <CR>
-" nmap <C-_> gc <CR>
+nmap <C-_> gcI <CR>
 " tabs
 
 " Move to previous/next
@@ -126,58 +121,6 @@ nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 nnoremap <C-p> "+gP
 vnoremap <C-p> "+gP
-
-lua << EOF
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
--- luasnip setup
-local luasnip = require 'luasnip'
-
--- nvim-cmp setup
-local cmp = require 'cmp'
-cmp.setup {
-  completion = {
-    autocomplete = false
-  },
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
-  mapping = {
-    ['<S-q'] = cmp.mapping.select_prev_item(),
-    ['<S-e>'] = cmp.mapping.select_next_item(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
-      elseif luasnip.expand_or_jumpable() then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
-      else
-        fallback()
-      end
-    end,
-    ['<S-Tab>'] = function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
-      elseif luasnip.jumpable(-1) then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
-      else
-        fallback()
-      end
-    end,
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  },
-}
-EOF
-
-
-
-
 
 set colorcolumn=79
 

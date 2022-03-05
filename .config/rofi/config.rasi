@@ -1,6 +1,7 @@
 configuration {
+
 /*	modi: "window,run,ssh";*/
-/*	font: "mono 12";*/
+	font: "Iosevka 12";
 /*	location: 0;*/
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
@@ -138,8 +139,8 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 
-kb-row-up: "Up,k,Shift+Tab,Shift+ISO_Left_Tab";
-kb-row-down: "Down,j";
+kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
+kb-row-down: "Down,Control+j";
 kb-accept-entry: "Control+m,Return,KP_Enter,l";
 terminal: "mate-terminal";
 kb-remove-to-eol: "Control+Shift+e";
@@ -156,3 +157,8 @@ kb-remove-char-back: "BackSpace";
   }
 }
 
+/* Dark theme. */
+@import "~/.cache/wal/colors-rofi-dark"
+
+/* Light theme. */
+@import "~/.cache/wal/colors-rofi-light"
