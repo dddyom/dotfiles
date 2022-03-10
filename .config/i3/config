@@ -163,7 +163,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 
-bindsym $mod+Escape exec --no-startup-id "betterlockscreen -l dimblur"
+bindsym $mod+Escape exec --no-startup-id betterlockscreen -l dimblur
 
 
 # resize window (you can also use the mouse for that)
