@@ -10,6 +10,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 alias ra="ranger"
+alias td="todo.sh"
+alias n="notes"
 
 alias gdot="cd ~/diff/dotfiles/"
 alias gn="cd ~/notes/"
