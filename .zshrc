@@ -1,4 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
+
+
+export EDITOR=nvim 
+export PATH=$PATH:$HOME/.local/bin
 ZSH_THEME="evan"
  zstyle ':omz:update' mode disabled  # disable automatic updates
 plugins=(git)

@@ -20,6 +20,9 @@ DOTFILES=(
 	".config/rofi"
 
 	".config/tmux"
+
+
+	".config/picom"
 )
 
 for dotfile in "${DOTFILES[@]}";do

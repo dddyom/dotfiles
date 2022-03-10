@@ -10,6 +10,7 @@ exec_always --no-startup-id "picom -cfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2
 
 exec --no-startup-id crow
 exec --no-startup-id alsactl init
+exec --no-startup-id udiskie &
 exec_always --no-startup-id nmcli radio wifi on
 
 exec_always --no-startup-id spotifyd
@@ -38,6 +39,10 @@ bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 bindsym Print exec --no-startup-id flameshot gui 
 
 
+bindsym $mod+p exec --no-startup-id keeweb
+
+
+bindsym $mod+g exec --no-startup-id thunderbird
 bindsym $mod+b exec --no-startup-id librewolf 
 
 bindsym $mod+t exec --no-startup-id telegram-desktop
