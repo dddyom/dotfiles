@@ -39,7 +39,7 @@ bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 bindsym Print exec --no-startup-id flameshot gui 
 
 
-bindsym $mod+p exec --no-startup-id keeweb
+bindsym $mod+p exec --no-startup-id keepassxc 
 
 
 bindsym $mod+g exec --no-startup-id thunderbird
