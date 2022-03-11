@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-export NOTES_DIRECTORY="$HOME/Sync/Notes"
+export NOTES_DIRECTORY="$HOME/Sync/Documents/notes"
 export EDITOR=nvim 
 export PATH=$PATH:$HOME/.local/bin
 ZSH_THEME="evan"
@@ -14,7 +14,7 @@ alias td="todo.sh"
 alias n="notes"
 
 alias gdot="cd ~/dotfiles/"
-alias gn="cd ~/Sync/Notes/"
+alias gn="cd ~/Sync/Documents/notes/"
 alias gw="cd ~/projects/"
 
 alias l="ls -a"
