@@ -1,5 +1,5 @@
 #! /bin/bash
-DIR=$HOME/diff/dotfiles
+DIR=$HOME/dotfiles
 
 DOTFILES=(
 	".bashrc"

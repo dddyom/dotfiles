@@ -42,8 +42,11 @@ bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+p exec --no-startup-id keepassxc 
 
 
+bindsym $mod+Shift+s exec --no-startup-id syncthing
+bindsym $mod+Control+s exec --no-startup-id pkill syncthing 
+
 bindsym $mod+g exec --no-startup-id thunderbird
-bindsym $mod+b exec --no-startup-id librewolf 
+bindsym $mod+b exec --no-startup-id brave 
 
 bindsym $mod+t exec --no-startup-id telegram-desktop
 
