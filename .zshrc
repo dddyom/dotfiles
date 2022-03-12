@@ -6,6 +6,7 @@ export PATH=$PATH:$HOME/.local/bin
 ZSH_THEME="evan"
  zstyle ':omz:update' mode disabled  # disable automatic updates
 plugins=(git)
+setopt extendedglob
 
 source $ZSH/oh-my-zsh.sh
 
@@ -18,7 +19,7 @@ alias gn="cd ~/Sync/Documents/notes/"
 alias gw="cd ~/projects/"
 
 alias l="ls -a"
-alias mkdir="mkdir -pv"
+alias mkdir="mkdir -p"
 alias rm="rm -r"
 alias q="exit"
 alias off="shutdown now"
@@ -40,4 +41,7 @@ if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then exec startx > ~/.Xoutput 
 fi
 
 mdn() { pandoc "$1" | lynx -stdin; }
+move_to_trash () { mv "$@" ~/.Trash; }
+
+alias rm='move_to_trash'
 
