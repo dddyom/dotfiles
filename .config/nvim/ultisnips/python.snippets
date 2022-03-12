@@ -6,8 +6,7 @@ if __name__ == "__main__":
 	${1:main}()
 endsnippet
 
-#snippet cls
-#class $1:
-	#def __init__(self, $2):
-		#self.$2 = $2
-#endsnippet
+snippet forlen
+for i in range(len($1)):
+	$1[i]
+endsnippet

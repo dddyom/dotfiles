@@ -156,9 +156,13 @@ kb-remove-char-back: "BackSpace";
   }
 
 }
-
+window{
+width:500;
+height:300;
+}
 /* Dark theme. */
 @import "~/.cache/wal/colors-rofi-dark"
 
 /* Light theme. */
 @import "~/.cache/wal/colors-rofi-light"
+
