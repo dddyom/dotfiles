@@ -1,5 +1,5 @@
 set number
-"set relativenumber
+set relativenumber
 set noswapfile
 set fileformat=unix
 set backspace=indent,eol,start " backspace setup
@@ -31,6 +31,7 @@ Plug 'sirver/ultisnips' "snippets
 Plug 'matveyt/neoclip' " system clipboard
 Plug 'preservim/nerdtree' 
 
+Plug 'crbinz/vim-links' "links
 Plug 'mhinz/vim-startify' " ...
 Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-css-color'
@@ -49,7 +50,19 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
+Plug 'mgedmin/python-imports.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'universal-ctags/ctags'
+Plug 'sansyrox/vim-python-virtualenv'
+
 call plug#end()
+
+let g:python3_host_prog='/usr/bin/python3'
+
+
+
+map <F5>    :ImportName<CR>
+map <C-F5>  :ImportNameHere<CR>
 
 colorscheme wal
 
@@ -59,8 +72,8 @@ nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 " NERDTree
-nnoremap <C-n> :NERDTreeToggle %<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <silent> <C-n> :NERDTree<CR>
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
 "tabs
 nnoremap <silent>    <A-1> :BufferGoto 1<CR>
@@ -110,7 +123,7 @@ cmp.setup {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<A-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,

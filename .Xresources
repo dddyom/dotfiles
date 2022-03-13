@@ -79,8 +79,9 @@ URxvt.keysym.Control-Meta-v: builtin-string:
 
 urxvt*perl-lib:         /usr/lib/urxvt/perl/
 URxvt.perl-ext-common: default,matcher,resize-font
-URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
+urxvt*urlLauncher:        /usr/bin/brave-browser
+urxvt*matcher.pattern.1:   \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 
 URxvt.keysym.C-Delete: perl:matcher:last
 URxvt.keysym.M-Delete: perl:matcher:list
