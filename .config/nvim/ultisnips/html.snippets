@@ -1,9 +1,708 @@
-snippet ext
-{% extends '${1:base.html}' %}
+snippet nbs
+	&nbsp;
 endsnippet
 
-snippet bl
-{% block ${1:content} %}
-	$2
-{% endblock %}
+snippet left
+	&#x2190;
+endsnippet
+
+
+snippet right
+	&#x2192;
+endsnippet
+
+
+snippet up
+	&#x2191;
+endsnippet
+
+
+snippet down
+	&#x2193;
+endsnippet
+
+
+snippet return
+	&#x21A9;
+endsnippet
+
+
+snippet backtab
+	&#x21E4;
+endsnippet
+
+
+snippet tab
+	&#x21E5;
+endsnippet
+
+
+snippet shift
+	&#x21E7;
+endsnippet
+
+
+snippet //
+	<!-- ${1} -->${0}
+endsnippet
+
+
+snippet .
+	class="${1}"
+endsnippet
+
+
+snippet #
+	id="${1}"
+endsnippet
+
+
+snippet alt
+	alt="${1}"
+endsnippet
+
+
+snippet charset
+	charset="${1:utf-8}"
+endsnippet
+
+
+snippet data
+	data-${1}="${2:$1}"
+endsnippet
+
+
+snippet for
+	for="${1}"
+endsnippet
+
+
+snippet height
+	height="${1}"
+endsnippet
+
+
+snippet href
+	href="${1:#}"
+endsnippet
+
+
+snippet lang
+	lang="${1:en}"
+endsnippet
+
+
+snippet media
+	media="${1}"
+endsnippet
+
+snippet name
+	name="${1}"
+endsnippet
+
+
+snippet rel
+	rel="${1}"
+endsnippet
+
+
+snippet scope
+	scope="${1:row}"
+endsnippet
+
+
+snippet src
+	src="${1}"
+endsnippet
+
+
+snippet title=
+	title="${1}"
+endsnippet
+
+
+snippet type
+	type="${1}"
+endsnippet
+
+
+snippet value
+	value="${1}"
+endsnippet
+
+
+snippet width
+	width="${1}"
+endsnippet
+
+
+snippet a
+	<a href="${1:#}">${0:$1}</a>
+endsnippet
+
+
+snippet a.
+	<a class="${1}" href="${2:#}">${0:$1}</a>
+endsnippet
+
+
+snippet a#
+	<a id="${1}" href="${2:#}">${0:$1}</a>
+endsnippet
+
+
+snippet a:ext
+	<a href="http://${1:example.com}">${0:$1}</a>
+endsnippet
+
+
+snippet a:mail
+	<a href="mailto:${1:joe@example.com}?subject=${2:feedback}">${0:email me}</a>
+endsnippet
+
+
+snippet ac
+	<a href="`@+`">${0:`@+`}</a>
+endsnippet
+
+
+snippet b
+	<b>${0}</b>
+endsnippet
+
+
+snippet br
+	<br>
+endsnippet
+
+
+snippet button
+	<button type="${1:submit}">${0}</button>
+endsnippet
+
+
+snippet button.
+	<button class="${1:button}" type="${2:submit}">${0}</button>
+endsnippet
+
+
+snippet button#
+	<button id="${1}" type="${2:submit}">${0}</button>
+endsnippet
+
+
+snippet button:s
+	<button type="submit">${0}</button>
+endsnippet
+
+
+snippet button:r
+	<button type="reset">${0}</button>
+endsnippet
+
+
+snippet div
+	<div>
+		${0}
+	</div>
+endsnippet
+
+
+snippet div.
+	<div class="${1}">
+		${0}
+	</div>
+endsnippet
+
+
+snippet div#
+	<div id="${1}">
+		${0}
+	</div>
+endsnippet
+
+
+snippet footer
+	<footer>
+		${0}
+	</footer>
+endsnippet
+
+
+snippet footer.
+	<footer class="${1}">
+		${0}
+	</footer>
+endsnippet
+
+
+snippet footer#
+	<footer id="${1}">
+		${0}
+	</footer>
+endsnippet
+
+
+snippet h1
+	<h1>${0}</h1>
+endsnippet
+
+
+snippet h1.
+	<h1 class="${1}">${0}</h1>
+endsnippet
+
+
+snippet h1#
+	<h1 id="${1}">${0}</h1>
+endsnippet
+
+
+snippet h2
+	<h2>${0}</h2>
+endsnippet
+
+
+snippet h2.
+	<h2 class="${1}">${0}</h2>
+endsnippet
+
+
+snippet h2#
+	<h2 id="${1}">${0}</h2>
+endsnippet
+
+
+snippet h3
+	<h3>${0}</h3>
+endsnippet
+
+
+snippet h3.
+	<h3 class="${1}">${0}</h3>
+endsnippet
+
+
+snippet h3#
+	<h3 id="${1}">${0}</h3>
+endsnippet
+
+
+snippet h4
+	<h4>${0}</h4>
+endsnippet
+
+
+snippet h4.
+	<h4 class="${1}">${0}</h4>
+endsnippet
+
+
+snippet h4#
+	<h4 id="${1}">${0}</h4>
+endsnippet
+
+
+snippet h5
+	<h5>${0}</h5>
+endsnippet
+
+
+snippet h5.
+	<h5 class="${1}">${0}</h5>
+endsnippet
+
+
+snippet h5#
+	<h5 id="${1}">${0}</h5>
+endsnippet
+
+
+snippet h6
+	<h6>${0}</h6>
+endsnippet
+
+
+snippet h6.
+	<h6 class="${1}">${0}</h6>
+endsnippet
+
+
+snippet h6#
+	<h6 id="${1}">${0}</h6>
+endsnippet
+
+
+snippet head
+	<head>
+		<meta charset="utf-8">
+
+		<title>${1:`substitute(vim_snippets#Filename('', 'Page Title'), '^.', '\u&', '')`}</title>
+		${0}
+	</head>
+endsnippet
+
+
+snippet header
+	<header>
+		${0}
+	</header>
+endsnippet
+
+
+snippet header.
+	<header class="${1}">
+		${0}
+	</header>
+endsnippet
+
+
+snippet header#
+	<header id="${1}">
+		${0}
+	</header>
+endsnippet
+
+
+snippet html
+	<html>
+	${0}
+	</html>
+endsnippet
+
+
+snippet html5
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width">
+			endsnippet
+
+
+			<title>${1:`substitute(vim_snippets#Filename('', 'Page Title'), '^.', '\u&', '')`}</title>
+			${2:link}
+		</head>
+		<body>
+			${0:body}
+		</body>
+	</html>
+endsnippet
+
+
+snippet i
+	<i>${0}</i>
+endsnippet
+
+
+snippet img
+	<img src="${1}" alt="${2}">
+endsnippet
+
+
+snippet img.
+	<img class="${1}" src="${2}" alt="${3}">
+endsnippet
+
+
+snippet img#
+	<img id="${1}" src="${2}" alt="${3}">
+endsnippet
+
+
+snippet input
+	<input type="${1:text/submit/hidden/button/image}" name="${2}" id="${3:$2}" value="${4}">
+endsnippet
+
+
+snippet input.
+	<input class="${1}" type="${2:text/submit/hidden/button/image}" name="${3}" id="${4:$3}" value="${5}">
+endsnippet
+
+
+snippet input:text
+	<input type="text" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:submit
+	<input type="submit" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:hidden
+	<input type="hidden" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:button
+	<input type="button" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:image
+	<input type="image" name="${1}" id="${2:$1}" src="${3}" alt="${4}">
+endsnippet
+
+
+snippet input:checkbox
+	<input type="checkbox" name="${1}" id="${2:$1}">
+endsnippet
+
+
+snippet input:radio
+	<input type="radio" name="${1}" id="${2:$1}">
+endsnippet
+
+
+snippet input:color
+	<input type="color" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:date
+	<input type="date" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:datetime
+	<input type="datetime" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:datetime-local
+	<input type="datetime-local" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:email
+	<input type="email" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:file
+	<input type="file" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:month
+	<input type="month" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:number
+	<input type="number" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:password
+	<input type="password" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:range
+	<input type="range" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:reset
+	<input type="reset" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:search
+	<input type="search" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:time
+	<input type="time" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:url
+	<input type="url" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet input:week
+	<input type="week" name="${1}" id="${2:$1}" value="${3}">
+endsnippet
+
+
+snippet label
+	<label for="${0:$1}">${1}</label>
+endsnippet
+
+
+snippet label:i
+	<label for="${2:$1}">${1}</label>
+	<input type="${3:text/submit/hidden/button}" name="${4:$2}" id="${5:$2}" value="${6}" />
+endsnippet
+
+
+snippet label:s
+	<label for="${2:$1}">${1}</label>
+	<select name="${3:$2}" id="${4:$2}">
+		<option value="${5}">${0:$5}</option>
+	</select>
+endsnippet
+
+
+snippet li
+	<li>${0}</li>
+endsnippet
+
+
+snippet li.
+	<li class="${1}">${0}</li>
+endsnippet
+
+
+snippet li+
+	<li>${1}</li>
+	li+
+endsnippet
+
+
+snippet lia
+	<li><a href="${0:#}">${1}</a></li>
+endsnippet
+
+
+snippet lia+
+	<li><a href="${2:#}">${1}</a></li>
+	lia+
+endsnippet
+
+
+snippet link
+	<link rel="${1}" href="${2}" title="${3}" type="${4}">
+endsnippet
+
+
+snippet link:atom
+	<link rel="alternate" href="${1:atom.xml}" title="Atom" type="application/atom+xml">
+endsnippet
+
+
+snippet link:s
+	<link rel="stylesheet" href="${1:style.css}">
+endsnippet
+
+
+snippet link:css
+	<link rel="stylesheet" href="${1:style.css}" type="text/css" media="${2:all}">
+endsnippet
+
+
+snippet link:favicon
+	<link rel="shortcut icon" href="${1:favicon.ico}" type="image/x-icon">
+endsnippet
+
+
+snippet link:rss
+	<link rel="alternate" href="${1:rss.xml}" title="RSS" type="application/atom+xml">
+endsnippet
+
+
+snippet link:touch
+	<link rel="apple-touch-icon" href="${1:favicon.png}">
+endsnippet
+
+
+snippet main
+	<main role="main">
+		${0}
+	</main>
+endsnippet
+
+
+snippet nav
+	<nav>
+		${0}
+	</nav>
+endsnippet
+
+
+snippet nav.
+	<nav class="${1}">
+		${0}
+	</nav>
+endsnippet
+
+
+snippet nav#
+	<nav id="${1}">
+		${0}
+	</nav>
+endsnippet
+
+
+snippet p
+	<p>${0}</p>
+endsnippet
+
+
+snippet p.
+	<p class="${1}">${0}</p>
+endsnippet
+
+
+snippet p#
+	<p id="${1}">${0}</p>
+endsnippet
+
+
+snippet span
+	<span>${0}</span>
+endsnippet
+
+
+snippet span.
+	<span class="${1}">${0}</span>
+endsnippet
+
+
+snippet span#
+	<span id="${1}">${0}</span>
+endsnippet
+
+
+snippet strong
+	<strong>${0}</strong>
+endsnippet
+
+
+snippet ul
+	<ul>
+		${0}
+	</ul>
+endsnippet
+
+
+snippet ul.
+	<ul class="${1}">
+		${0}
+	</ul>
+endsnippet
+
+
+snippet ul#
+	<ul id="${1}">
+		${0}
+	</ul>
+endsnippet
+
+
+snippet ul+
+	<ul>
+		<li>${1}</li>
+		li+${0}
+	</ul>
+endsnippet
+
+
+snippet var
+	<var>${0}</var>
 endsnippet
