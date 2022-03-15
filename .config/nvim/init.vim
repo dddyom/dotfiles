@@ -23,11 +23,13 @@ syntax on
 set t_Co=256
 set cursorline
 
+set completeopt=menu,menuone,noselect
 
-nnoremap <F6> :e <C-R>=@%<CR>
-inoremap jk <Esc>
-nnoremap <silent> ,<space> :nohlsearch<CR>
-
+"SYSTEM CLIPBOARD
+nnoremap <C-y> "+y
+vnoremap <C-y> "+y
+nnoremap <C-p> "+gP
+vnoremap <C-p> "+gP
 
 
 call plug#begin()
@@ -71,6 +73,11 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'dylanaraps/wal.vim'
 call plug#end()
 
+nnoremap <F6> :e <C-R>=@%<CR>
+inoremap jk <Esc>
+nnoremap <silent> ,<space> :nohlsearch<CR>
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
 
 "THEMES
 
@@ -92,7 +99,6 @@ let g:airline_theme='onehalflight'
 
 
 "GUI
-
 "set guifont=Iosevka\Nerd\Font:h12
 
 
@@ -162,14 +168,6 @@ exe 'hi default BufferInactiveTarget   guifg=red gui=bold guibg=' . bg_inactive
 hi default BufferShadow guifg=#000000 guibg=#000000
 
 
-"SYSTEM CLIPBOARD
-nnoremap <C-y> "+y
-vnoremap <C-y> "+y
-nnoremap <C-p> "+gP
-vnoremap <C-p> "+gP
-
-
-
 "SNIPPETS
 let g:UltiSnipsSnippetDirectories=['/home/d/.config/nvim/ultisnips']
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -202,11 +200,8 @@ autosave.setup(
         debounce_delay = 135
     }
 )
-EOF
 
-set completeopt=menu,menuone,noselect
 
-lua <<EOF
   -- Setup nvim-cmp.
   local cmp = require'cmp'
 

@@ -11,7 +11,7 @@ URxvt*scrollTtyKeypress: true
 ! URxvt.shading:		10 
 
 
-Urxvt*termName:         rxvt
+URxvt*termName:         rxvt
 URxvt.letterSpace: 1
 URxvt.lineSpace: -1
 URxvt.cursorBlink: true
@@ -62,8 +62,8 @@ URxvt.iso14755_52: false
 
 
 !! Common Keybinds for Navigations
-Urxvt.keysym.Shift-Up: \033]720;1\007
-Urxvt.keysym.Shift-Down: \033]721;1\007
+URxvt.keysym.Shift-Up: \033]720;1\007
+URxvt.keysym.Shift-Down: \033]721;1\007
 URxvt.keysym.Control-Up:    \033[1;5A
 URxvt.keysym.Control-Down:  \033[1;5B
 URxvt.keysym.Control-Left:  \033[1;5D
