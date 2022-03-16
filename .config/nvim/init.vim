@@ -31,7 +31,7 @@ vnoremap <C-y> "+y
 nnoremap <C-p> "+gP
 vnoremap <C-p> "+gP
 
-
+"PLUGS
 call plug#begin()
 
 Plug 'preservim/nerdcommenter' "COMMENTS
@@ -46,10 +46,9 @@ Plug 'romgrk/barbar.nvim' "TABS
 "ICONS
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'vim-airline/vim-airline'
+Plug 'ryanoasis/vim-devicons'
 
 Plug 'Pocco81/AutoSave.nvim'
-Plug 'mattn/emmet-vim'
-
 
 "AUTOCOMPLETE
 Plug 'neovim/nvim-lspconfig'
@@ -60,6 +59,7 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
 Plug 'SirVer/ultisnips'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 "AUTOIMPORT
 Plug 'mgedmin/python-imports.vim'
@@ -124,9 +124,6 @@ nnoremap <silent> <C-n> :NERDTree<CR>
 nnoremap <silent> <C-a> :NERDTreeFocus<CR>
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 
-"EMMET
-let g:user_emmet_install_global = 0
-let g:user_emmet_leader_key='<C-e>'
 autocmd FileType html,css EmmetInstall
 
 "TABS
@@ -207,12 +204,8 @@ autosave.setup(
 
   cmp.setup({
     snippet = {
-      -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+        vim.fn["UltiSnips#Anon"](args.body)
       end,
     },
     mapping = {
@@ -225,13 +218,24 @@ autosave.setup(
         c = cmp.mapping.close(),
       }),
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+	 ["<Tab>"] = cmp.mapping(function(fallback)
+		  if cmp.visible() then
+			cmp.select_next_item()
+		  else
+			fallback()
+		  end
+		end, { "i" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+		  if cmp.visible() then
+			cmp.select_prev_item()
+		  else
+			fallback()
+		  end
+		end, { "i" }),
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'vsnip' }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
+      { name = 'ultisnips' }, 
     }, {
       { name = 'buffer' },
     })
