@@ -1,14 +1,31 @@
-export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="garyblessington"
+
 
 export NOTES_DIRECTORY="$HOME/Sync/Documents/notes"
+export ZSH="$HOME/.oh-my-zsh"
+export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 export EDITOR=nvim 
 export PATH=$PATH:$HOME/.local/bin
-ZSH_THEME="garyblessington"
- zstyle ':omz:update' mode disabled  # disable automatic updates
+
+
+bindkey ';5D' backward-word
+bindkey ';5C' forward-word
+bindkey '^[OH' beginning-of-line
+bindkey '^[OF' end-of-line
+bindkey "\e[3@" kill-line
+
+
+
+zstyle ':omz:update' mode disabled  # disable automatic updates
 plugins=(git)
 setopt extendedglob
 
 source $ZSH/oh-my-zsh.sh
+
+mdn() { pandoc "$1" | lynx -stdin; }
+move_to_trash () { mv "$@" ~/.Trash; }
+
+alias rm='move_to_trash'
 
 alias ra="ranger"
 alias td="todo.sh"
@@ -39,9 +56,3 @@ unset __conda_setup
 # <<< conda initialize <<<
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then exec startx > ~/.Xoutput 2>&1
 fi
-
-mdn() { pandoc "$1" | lynx -stdin; }
-move_to_trash () { mv "$@" ~/.Trash; }
-
-alias rm='move_to_trash'
-

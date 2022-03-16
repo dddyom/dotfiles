@@ -49,6 +49,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'Pocco81/AutoSave.nvim'
+Plug 'windwp/nvim-autopairs'
+"Plug 'folke/which-key.nvim'
 
 "AUTOCOMPLETE
 Plug 'neovim/nvim-lspconfig'
@@ -72,6 +74,7 @@ Plug 'projekt0n/github-nvim-theme'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'dylanaraps/wal.vim'
 call plug#end()
+"PD plugend
 
 nnoremap <F6> :e <C-R>=@%<CR>
 inoremap jk <Esc>
@@ -79,6 +82,7 @@ nnoremap <silent> ,<space> :nohlsearch<CR>
 map f <Plug>Sneak_s
 map F <Plug>Sneak_S
 
+inoremap <buffer> <silent> a <C-R>= AutoPairsDelete()<CR>
 "THEMES
 
 "colorscheme wal
@@ -123,8 +127,6 @@ let g:NERDTreeWinSize=20
 nnoremap <silent> <C-n> :NERDTree<CR>
 nnoremap <silent> <C-a> :NERDTreeFocus<CR>
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-
-autocmd FileType html,css EmmetInstall
 
 "TABS
 nnoremap <silent>    <A-S-tab> :BufferPrevious<CR>
@@ -172,12 +174,13 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "ICONS
+"LUA
 lua <<EOF
+vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', {noremap = true})
 require'nvim-web-devicons'.get_icons()
-EOF
-"AUTOSAVE
+require('nvim-autopairs').setup{}
+--require("which-key").setup{}
 
-lua << EOF
 local autosave = require("autosave")
 
 autosave.setup(
