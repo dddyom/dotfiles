@@ -23,6 +23,7 @@ DOTFILES=(
 
 
 	".config/picom"
+	".wallpapers"
 )
 
 for dotfile in "${DOTFILES[@]}";do
