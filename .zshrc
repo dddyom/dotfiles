@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export NOTES_DIRECTORY="$HOME/Sync/Documents/notes"
 export EDITOR=nvim 
 export PATH=$PATH:$HOME/.local/bin
-ZSH_THEME="evan"
+ZSH_THEME="garyblessington"
  zstyle ':omz:update' mode disabled  # disable automatic updates
 plugins=(git)
 setopt extendedglob
