@@ -1,1 +1,1 @@
-wal -a 95 -i ${HOME}/.wallpapers  -n -l; feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
+wal -a 95 -i ${HOME}/.wallpapers  -n -l; feh --bg-scale "$(< "${HOME}/.cache/wal/wal")" --theme one-half-light
