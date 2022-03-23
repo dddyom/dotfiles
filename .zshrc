@@ -25,6 +25,11 @@ source $ZSH/oh-my-zsh.sh
 
 move_to_trash() { mv "$@" ~/.Trash; }
 
+alias fzf="fzf --preview 'bat --theme OneHalfDark --color=always --style=numbers --line-range=:500 {}'"
+alias man ="batman"
+alias grep="batgrep"
+alias less="batpipe"
+alias cat="bat --theme OneHalfDark"
 alias rm='move_to_trash'
 
 alias ra="ranger"
@@ -34,6 +39,7 @@ alias n="notes"
 alias gdot="cd ~/dotfiles/"
 alias gn="cd ~/Sync/Documents/notes/"
 alias gw="cd ~/projects/"
+alias gdw="cd ~/brave/"
 
 alias l="ls -a"
 alias mkdir="mkdir -p"
