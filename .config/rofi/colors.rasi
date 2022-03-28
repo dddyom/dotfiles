@@ -1,0 +1,15 @@
+/* colors */
+@import "~/.cache/wal/colors-rofi-light"
+* {
+  al:      var(lightbg);
+  bg:      var(background);
+  se:      var(blue);
+  fg:      var(foreground);
+  ac:      var(lightfg);
+  red:     var(red);
+  green:   var(green);
+  yellow:  var(yellow);
+  blue:    var(blue);
+  purple:  var(purple);
+  cyan:    var(lightbg);
+}

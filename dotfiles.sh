@@ -6,9 +6,10 @@ DOTFILES=(
 	".condarc"
 	".xinitrc"
 	".zshrc"
-
+	
+	".config/kitty"
 	".config/betterlockscreenrc"
-	".config/alacritty"
+	#".config/alacritty"
 	".config/i3"
 	".config/nvim"
 

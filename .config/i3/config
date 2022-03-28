@@ -2,7 +2,7 @@ set $mod Mod4
 
 font pango:Iosevka Bold 8
 
-exec_always --no-startup-id "$HOME/.config/i3/wallpaper.sh"
+exec_always --no-startup-id "$HOME/.config/i3/wallpaperd.sh"
 bindsym $mod+i exec --no-startup-id "$HOME/.config/i3/wallpaper.sh"
 bindsym $mod+u exec --no-startup-id "$HOME/.config/i3/wallpaperd.sh"
 exec_always --no-startup-id "xrdb ~/.Xresources"
@@ -34,6 +34,10 @@ bindsym $mod+x exec --no-startup-id /home/d/.config/rofi/wifi_rofi.sh
 bindsym Menu exec --no-startup-id i3-sensible-terminal; exec --no-startup-id sleep 0.2s && i3-msg floating enable && i3-msg resize set 400px 100px && i3-msg move position 940px 630 px
 
 
+
+bindsym $mod+n exec --no-startup-id ~/dotfiles/touchpad_toggle.sh
+
+
 bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 bindsym Print exec --no-startup-id flameshot gui 
@@ -49,8 +53,6 @@ bindsym $mod+g exec --no-startup-id thunderbird
 bindsym $mod+b exec --no-startup-id brave 
 
 bindsym $mod+t exec --no-startup-id telegram-desktop
-
-bindsym $mod+n exec --no-startup-id ~/diff/standard-notes-3.11.0-linux-x86_64.AppImage
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status

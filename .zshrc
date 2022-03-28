@@ -1,6 +1,5 @@
 ZSH_THEME="garyblessington"
 
-
 export NOTES_DIRECTORY="$HOME/Sync/Documents/notes"
 export ZSH="$HOME/.oh-my-zsh"
 export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
@@ -8,17 +7,19 @@ export EDITOR=nvim
 export PATH=$PATH:$HOME/.local/bin
 
 
-bindkey ';5D' backward-word
-bindkey ';5C' forward-word
-bindkey '^[OH' beginning-of-line
-bindkey '^[OF' end-of-line
-bindkey "\e[3@" kill-line
-bindkey "K" history-search-backward
-bindkey "J" history-search-forward
+plugins=( 
+	sudo
+	copyfile
+	dirhistory
+	copybuffer
+	git
+    zsh-autosuggestions
+)
 
 
-zstyle ':omz:update' mode disabled  # disable automatic updates
-plugins=(git)
+
+
+#zstyle ':omz:update' mode disabled  # disable automatic updates
 setopt extendedglob
 
 source $ZSH/oh-my-zsh.sh
@@ -44,8 +45,9 @@ alias gdw="cd ~/brave/"
 alias l="ls -a"
 alias mkdir="mkdir -p"
 alias q="exit"
+alias c="clear"
 alias off="shutdown now"
-
+alias cpf="copyfile"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -63,3 +65,16 @@ unset __conda_setup
 # <<< conda initialize <<<
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then exec startx > ~/.Xoutput 2>&1
 fi
+
+
+
+bindkey '^[^[[D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[OH' beginning-of-line
+bindkey '^[OF' end-of-line
+# For Control k and j
+bindkey '^k' up-line-or-history
+bindkey '^j' down-line-or-history
+bindkey '^l' autosuggest-accept
+bindkey '^p' clear-screen
+bindkey '^H' backward-delete-word

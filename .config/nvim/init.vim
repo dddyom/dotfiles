@@ -6,6 +6,7 @@ set backspace=indent,eol,start " backspace setup
 set clipboard+=unnamedplus " clipboard
 set mouse=a
 set encoding=UTF-8
+set fillchars+=stl:\ ,stlnc:\
 set scrolloff=7
 "set autochdir
 
@@ -20,10 +21,36 @@ set softtabstop=4
 set colorcolumn=79
 
 syntax on
-set t_Co=256
+"set t_Co=256
 set cursorline
 
 set completeopt=menu,menuone,noselect
+
+set statusline=
+set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
+set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=\ %n\           " buffer number
+set statusline+=%#Visual#       " colour
+set statusline+=%{&paste?'\ PASTE\ ':''}
+set statusline+=%{&spell?'\ SPELL\ ':''}
+set statusline+=%#CursorIM#     " colour
+set statusline+=%R                        " readonly flag
+set statusline+=%M                        " modified [+] flag
+set statusline+=%#Cursor#               " colour
+set statusline+=%#CursorLine#     " colour
+set statusline+=\ %t\                   " short file name
+set statusline+=%=                          " right align
+set statusline+=%#CursorLine#   " colour
+set statusline+=\ %Y\                   " file type
+set statusline+=%#CursorIM#     " colour
+set statusline+=\ %3l:%-2c\         " line + column
+set statusline+=%#Cursor#       " colour
+set statusline+=\ %3p%%\                " percentage
+
+
+
 
 "SYSTEM CLIPBOARD
 nnoremap <C-y> "+y
@@ -42,13 +69,13 @@ Plug 'matveyt/neoclip' " SYSTEM CLIPBOARD
 Plug 'preservim/nerdtree'
 Plug 'justinmk/vim-sneak'
 Plug 'crbinz/vim-links' "LINKS
-"Plug 'mhinz/vim-startify' " ...
+
 Plug 'ap/vim-css-color'
 Plug 'romgrk/barbar.nvim' "TABS
 
 "ICONS
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'Pocco81/AutoSave.nvim'
@@ -77,6 +104,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'universal-ctags/ctags'
 Plug 'sansyrox/vim-python-virtualenv'
 
+Plug 'mhinz/vim-startify'
 "THEMES
 "Plug 'projekt0n/github-nvim-theme'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
@@ -108,11 +136,16 @@ endif
 
 " LIGHT
 colorscheme onehalfdark
-let g:airline_theme='onehalflight'
+"let g:airline_theme='onehalflight'
 
 "PEP8
 "noremap <silent> <F8> :call Autopep8()<CR>
 "let g:autopep8_disable_show_diff=1
+
+"STARTIFY
+let g:startify_custom_header =
+       \ startify#pad(split(system('figlet -w 100 Neovim'), '\n'))
+let g:startify_lists = [{ 'type': 'dir',       'header': ['   MRU '. getcwd()] },]
 
 "GUI
 "set guifont=Iosevka\Nerd\Font:h12
@@ -129,7 +162,7 @@ map <C-F5>  :ImportNameHere<CR>
 
 
 " COMMENTARY
-nmap <C-_> <Plug>NERDCommenterToggle
+nmap <C-_> <Plug>NERDCommenterToggle<CR>
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 
@@ -164,6 +197,7 @@ nnoremap <silent>    <C-w> :BufferClose<CR>
 let bg_current = get(nvim_get_hl_by_name('Normal',     1), 'background', '#000000')
 let bg_visible = get(nvim_get_hl_by_name('TabLineSel', 1), 'background', '#000000')
 let bg_inactive = get(nvim_get_hl_by_name('TabLine',   1), 'background', '#000000')
+
 
 hi default link BufferCurrent      Normal
 hi default link BufferCurrentMod   Normal
@@ -205,7 +239,6 @@ local autosave = require("autosave")
 autosave.setup(
 {
 enabled = true,
-execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
 events = {"InsertLeave", "TextChanged"},
 conditions = {
 	exists = true,
@@ -296,4 +329,5 @@ end
   require('lspconfig')['pyright'].setup {
 	  capabilities = capabilities
 	  }
+
 EOF
