@@ -14,12 +14,13 @@ Plug 'Chiel92/vim-autoformat'						"AUTOFORMAT
 Plug 'alvan/vim-closetag'							"AUTOCLOSE TAGS
 Plug 'nanozuki/tabby.nvim'							"TABS
 Plug 'junegunn/goyo.vim'							"READER MODE
-
+Plug 'tpope/vim-fugitive'							"GIT
 
 Plug 'kyazdani42/nvim-web-devicons'					"ICONS
 Plug 'ryanoasis/vim-devicons'						"ICONS
 Plug 'ap/vim-css-color'								"CSS COLORS
 Plug 'mhinz/vim-startify'							"START SCREEN
+Plug 'dstein64/vim-startuptime'						"LOAD TIME
 
 "Plug 'projekt0n/github-nvim-theme'
 "Plug 'dylanaraps/wal.vim'
@@ -223,27 +224,23 @@ set completeopt=menu,menuone,noselect
 set statusline=
 set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
-set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
-set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
 
 
-set statusline+=\ %n\								" buffer number
-set statusline+=%#Visual#							" colour
-set statusline+=%{&paste?'\ PASTE\ ':''}
-set statusline+=%{&spell?'\ SPELL\ ':''}
-set statusline+=%#CursorIM#							" colour
-set statusline+=%R									" readonly flag
-set statusline+=%M									" modified [+] flag
-set statusline+=%#Cursor#							" colour
-set statusline+=%#CursorLine#						" colour
-set statusline+=\ %t\								" short file name
-set statusline+=%=									" right align
-set statusline+=%#CursorLine#						" colour
-set statusline+=\ %Y\								" file type
-set statusline+=%#CursorIM#							" colour
-set statusline+=\ %3l:%-2c\							" line + column
-set statusline+=%#Cursor#							" colour
-set statusline+=\ %3p%%\							" percentage
+set statusline+=\ %n									" buffer number
+set statusline+=%#Visual#								" colour
+set statusline+=%#CursorIM#								" colour
+set statusline+=%R										" readonly flag
+set statusline+=%M										" modified [+] flag
+set statusline+=%#Cursor#								" colour
+set statusline+=%#CursorLine#							" colour
+set statusline+=\ %t									" short file name
+set statusline+=%=										" right align
+set statusline+=%#CursorLine#							" colour
+set statusline+=\ %Y									" file type
+set statusline+=%#CursorIM#								" colour
+set statusline+=\ %3l:%-2c   							" line + column 
+set statusline+=%#Cursor#								" colour
+set statusline+=\%3p%%									" percentage
 
 
 
