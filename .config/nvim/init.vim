@@ -72,10 +72,10 @@ nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1
 
 
 "READER MODE F7
-noremap  <F7> :Goyo<CR>
+noremap <silent>  <F7> :Goyo<CR>
 
 "AUTOFORMAT F3
-noremap <F3> :Autoformat<CR>
+noremap <silent> <F3> :Autoformat<CR>
 
 "OPEN FILE IN CUR DIR F6
 nnoremap <F6> :e <C-R> %:h/
@@ -132,8 +132,8 @@ let g:startify_lists = [{ 'type': 'dir',       'header': ['   MRU '. getcwd()] }
 
 " *** AUTOIMPORT ***
 let g:python3_host_prog='/usr/bin/python3'
-map <F5>    :ImportName<CR>
-map <C-F5>  :ImportNameHere<CR>
+map <silent> <F5>    :ImportName<CR>
+map <silent> <C-F5>  :ImportNameHere<CR>
 
 
 

@@ -1,29 +1,16 @@
 configuration {
-    lines:							10;
-    columns:						2;
     font: 							"Iosevka Nerd Font 12";
-    bw: 							0;
     location: 						7;
 	xoffset:						12;
 	yoffset:						-12;
     fixed-num-lines: 				true;
-    show-icons: 					false;
     sidebar-mode: 					true;
     separator-style: 				"none";
     hide-scrollbar: 				true;
     fullscreen: 					false;
     fake-transparency: 				false;
     scroll-method: 					1;
-    window-format: 					"[{w}] ··· {c} ···   {t}";
     click-to-exit: 					true;
-    show-match: 					false;
-    combi-hide-mode-prefix: 		false;
-    display-window: 				"";
-	display-windowcd: 				"";
-	display-run: 					"";
-	display-ssh: 					"";
-	display-drun: 					"";
-	display-combi: 					"";
 }
 
 @import "colors.rasi"
@@ -37,8 +24,8 @@ window {
     border-color: 					@ac;
     border-radius: 					8px;
     padding: 						12;
-    width: 							350px;
-    height: 						220px;
+    width: 							200px;
+    height: 						180px;
 	
 }
 
@@ -48,12 +35,6 @@ prompt {
     text-color: 					@fg;
 }
 
-textbox-prompt-colon {
-    expand: 						false;
-    str: 							" ";
-    margin:							0px 0px 0px 0px;
-    text-color: 					inherit;
-}
 
 entry {
     spacing:    					0;
@@ -76,6 +57,7 @@ mainbox {
     border: 						1px;
     border-color: 					@ac;
     padding: 						6;
+	children: [listview];
 }
 
 listview {
