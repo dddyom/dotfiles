@@ -18,7 +18,7 @@ Plug 'tpope/vim-fugitive'							"GIT
 
 Plug 'kyazdani42/nvim-web-devicons'					"ICONS
 Plug 'ryanoasis/vim-devicons'						"ICONS
-Plug 'ap/vim-css-color'								"CSS COLORS
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'mhinz/vim-startify'							"START SCREEN
 Plug 'dstein64/vim-startuptime'						"LOAD TIME
 
@@ -70,6 +70,9 @@ let mapleader = "\<Space>"
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
+
+"CSS COLORS
+let g:Hexokinase_highlighters = [ 'sign_column' , 'backgroundfull' ]
 
 "READER MODE F7
 noremap <silent>  <F7> :Goyo<CR>

@@ -8,7 +8,7 @@ rofi_command="rofi -theme $dir/$theme"
 shutdown="  Shutdown"
 reboot="  Reboot"
 lock="  Lock"
-suspend="  Suspend"
+#suspend="  Suspend"
 logout="  Logout"
 
 # Confirmation
@@ -26,7 +26,8 @@ msg() {
 }
 
 # Variable passed to rofi
-options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
+#options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
+options="$shutdown\n$reboot\n$lock\n$logout"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
 case $chosen in
@@ -53,18 +54,18 @@ case $chosen in
     $lock)
 		betterlockscreen  -l blur
         ;;
-    $suspend)
-		ans=$(confirm_exit &)
-		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
-			mpc -q pause
-			amixer set Master mute
-			systemctl suspend
-		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
-			exit 0
-        else
-			msg
-        fi
-        ;;
+    #$suspend)
+		#ans=$(confirm_exit &)
+		#if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
+			#mpc -q pause
+			#amixer set Master mute
+			#systemctl suspend
+		#elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
+			#exit 0
+        #else
+			#msg
+        #fi
+        #;;
     $logout)
 		ans=$(confirm_exit &)
 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
