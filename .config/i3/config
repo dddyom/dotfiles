@@ -5,12 +5,14 @@ set $Xres											"xrdb $HOME/.Xresources"
 set $theme_light									"$HOME/.config/i3/wallpaper.sh light"
 set $theme_dark										"$HOME/.config/i3/wallpaper.sh dark"
 set $picom											"picom -cfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2"
+set $polybar_toggle									polybar-msg cmd toggle
+set $sleep											sleep 0.2s
 set $clipboard										rofi -modi "clipboard:greenclip print" 	-show clipboard
 set $clipboard_daemon								greenclip daemon > /dev/null
 set $wifi											"$HOME/.config/rofi/wifi_rofi.sh"
 set $powermenu										"$HOME/.config/rofi/powermenu.sh"
-set $terminal1										kitty
-set $terminal2										urxvt
+set $terminal1										urxvt
+set $terminal2										kitty	
 set $touchpad_toggle								"$HOME/dotfiles/touchpad_toggle.sh"
 set $screenshot										flameshot gui
 set $browser										brave
@@ -83,7 +85,7 @@ exec_always --no-startup-id							$polybar
 #======== AUTOSTART ===========
 exec --no-startup-id								crow
 exec --no-startup-id								udiskie &
-exec --no-startup-id								$clipboard_daemon	
+exec --no-startup-id								$clipboard_daemon
 #=============================
 
 
@@ -98,6 +100,8 @@ bindsym $mod+n			exec --no-startup-id		$touchpad_toggle
 bindsym Print			exec --no-startup-id		$screenshot
 
 bindsym $mod+Return		exec --no-startup-id		$terminal1 
+bindsym $mod+Shift\
+			+Return		exec --no-startup-id		$terminal2
 bindsym $mod+b			exec --no-startup-id		$browser
 bindsym $mod+t			exec --no-startup-id		$telegram
 bindsym $mod+p			exec --no-startup-id		keepassxc
@@ -105,7 +109,7 @@ bindsym $mod+Shift+s	exec --no-startup-id		syncthing
 bindsym $mod+Control+s	exec --no-startup-id		pkill syncthing
 bindsym $mod+g			exec --no-startup-id		thunderbird
 bindsym Menu			exec --no-startup-id		$terminal2; \
-						exec --no-startup-id		sleep 0.1s  \
+						exec --no-startup-id		$sleep\
 						&& i3-msg					floating enable \
 						&& i3-msg resize set		$rofi_size\
 						&& i3-msg move position		$rofi_locate
@@ -125,6 +129,7 @@ bindsym \
 XF86MonBrightnessUp		exec --no-startup-id		$brightness_up
 bindsym \
 XF86MonBrightnessDown	exec --no-startup-id		$brightness_down
+bindsym $mod+a			exec --no-startup-id		$polybar_toggle
 
 
 #======= WINDOW MODES ========
@@ -158,7 +163,7 @@ bindsym $mod+e										layout toggle split
 
 bindsym $mod+Shift+space							floating toggle
 
-bindsym $mod+a										focus parent
+#bindsym $mod+a										focus parent
 
 bindsym $mod+1										workspace number $ws1
 bindsym $mod+2										workspace number $ws2

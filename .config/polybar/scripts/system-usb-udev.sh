@@ -28,7 +28,7 @@ usb_print() {
         fi
         counter=$((counter + 1))
 
-        output="$output$space $mounted"
+        output="$output$space  $mounted"
     done
 
     echo "$output"
