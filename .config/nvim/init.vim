@@ -19,6 +19,7 @@ Plug 'tpope/vim-fugitive'							"GIT
 Plug 'kyazdani42/nvim-web-devicons'					"ICONS
 Plug 'ryanoasis/vim-devicons'						"ICONS
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+													"CSS
 Plug 'mhinz/vim-startify'							"START SCREEN
 Plug 'dstein64/vim-startuptime'						"LOAD TIME
 
@@ -140,8 +141,8 @@ map <silent> <C-F5>  :ImportNameHere<CR>
 
 
 
-" *** DOCUMENTATION ***
-let g:jedi#completions_enabled = 0
+ "*** DOCUMENTATION ***
+"let g:jedi#completions_enabled = 0
 
 
 
@@ -158,7 +159,6 @@ let NERDTreeQuitOnOpen=1
 nnoremap <silent> <C-n> :NERDTree<CR>
 nnoremap <silent> <C-a> :NERDTreeFocus<CR>
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-
 
 
 " *** TABS ***
@@ -249,6 +249,7 @@ set statusline+=\%3p%%									" percentage
 
 " *** LUA ***
 lua <<EOF
+
  -- TABS --
 require("tabby").setup({
     tabline = require("tabby.presets").active_wins_at_tail,
@@ -258,10 +259,8 @@ require("tabby").setup({
 require'nvim-treesitter.configs'.setup {
 	ensure_installed = "maintained",
 	sync_install = false,
-	ignore_install = { "javascript" },
 	highlight = {
 		enable = true,
-		disable = { "c", "rust" },
 		additional_vim_regex_highlighting = false,
 	},
 	textobjects = {
@@ -308,7 +307,6 @@ require'nvim-treesitter.configs'.setup {
 		},
 	},
 }
-
  -- AUTOPAIRS --
 require('nvim-autopairs').setup{}
 

@@ -11,8 +11,8 @@ set $clipboard										rofi -modi "clipboard:greenclip print" 	-show clipboard
 set $clipboard_daemon								greenclip daemon > /dev/null
 set $wifi											"$HOME/.config/rofi/wifi_rofi.sh"
 set $powermenu										"$HOME/.config/rofi/powermenu.sh"
-set $terminal1										urxvt
-set $terminal2										kitty	
+set $terminal2										urxvt
+set $terminal1										kitty	
 set $touchpad_toggle								"$HOME/dotfiles/touchpad_toggle.sh"
 set $screenshot										flameshot gui
 set $browser										brave
@@ -162,6 +162,8 @@ bindsym $mod+m										layout tabbed
 bindsym $mod+e										layout toggle split
 
 bindsym $mod+Shift+space							floating toggle
+bindsym $mod+Shift+f								floating enable
+bindsym $mod+Shift+d								floating disable 
 
 #bindsym $mod+a										focus parent
 
@@ -192,17 +194,17 @@ bindsym $mod+Shift+0	move container to			workspace number $ws0
 
 bindsym $mod+r										mode "resize"
 bindsym $mod+Shift+g								mode "$mode_gaps"
-
+bindsym $modShift+m mode "move" focus floating
 mode "resize" {
-	bindsym l			resize shrink				width 10 px or 10 ppt
-	bindsym k			resize grow					height 10 px or 10 ppt
-	bindsym j			resize shrink				height 10 px or 10 ppt
-	bindsym h			resize grow					width 10 px or 10 ppt
+	bindsym h			resize shrink				width 50 px or 50 ppt
+	bindsym j			resize grow					height 50 px or 50 ppt
+	bindsym k			resize shrink				height 50 px or 50 ppt
+	bindsym l			resize grow					width 50 px or 50 ppt
 
-	bindsym Right		resize shrink				width 10 px or 10 ppt
-	bindsym Up			resize grow					height 10 px or 10 ppt
-	bindsym Down		resize shrink				height 10 px or 10 ppt
-	bindsym Left		resize grow					width 10 px or 10 ppt
+	bindsym Left		resize shrink				width 50 px or 50 ppt
+	bindsym Down		resize grow					height 50 px or 50 ppt
+	bindsym Up			resize shrink				height 50 px or 50 ppt
+	bindsym Right		resize grow					width 50 px or 50 ppt
 
 	bindsym Return									mode "default"
 	bindsym Escape									mode "default"
@@ -238,4 +240,20 @@ mode "$mode_gaps_outer" {
 
 	bindsym Return									mode "default"
 	bindsym Escape									mode "default"
+}
+mode "move" {
+    bindsym $mod+Tab								focus right
+
+    bindsym Left									move left
+    bindsym Down									move down
+    bindsym Up										move up 
+    bindsym Right									move right
+
+    bindsym h										move left
+    bindsym j										move down
+    bindsym k										move up
+    bindsym l										move right
+
+    bindsym Return									mode "default"
+    bindsym Escape									mode "default"
 }

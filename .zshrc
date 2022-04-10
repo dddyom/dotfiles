@@ -24,7 +24,7 @@ setopt extendedglob
 
 source $ZSH/oh-my-zsh.sh
 
-move_to_trash() { mv "$@" $HOME/.local/share/.Trash; }
+move_to_trash() { cp -r "$@" $HOME/.local/share/.Trash && \rm -r "$@"}
 
 alias fzf="fzf --preview 'bat --theme OneHalfDark --color=always --style=numbers --line-range=:500 {}'"
 alias man ="batman"
@@ -32,7 +32,7 @@ alias grep="batgrep"
 alias less="batpipe"
 alias cat="bat --theme OneHalfDark"
 alias rm='move_to_trash'
-alias cT='echo -n Trash is empty | pv -qL 10 && \rm -rf  ~/.local/share/Trash/'
+alias cT='\rm -rf  $HOME/.local/share/.Trash/**/* && echo -n Trash is empty | pv -qL 30 '
 
 alias ra="ranger"
 alias td="todo.sh"
@@ -40,7 +40,7 @@ alias n="notes"
 alias neofetch='neofetch --source ~/.config/neofetch/ascii.logo'
 alias gdot="cd ~/dotfiles/"
 alias gn="cd ~/Sync/Documents/notes/"
-alias gw="cd ~/projects/"
+alias gw="cd ~/code/"
 alias gdw="cd ~/brave/"
 alias gT="cd ~/.local/share/.Trash/"
 
@@ -51,23 +51,10 @@ alias c="clear"
 alias off="shutdown now"
 alias cpf="copyfile"
 alias srcz="source ~/.zshrc"
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-	eval "$__conda_setup"
-else
-	if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
-		. "/opt/anaconda/etc/profile.d/conda.sh"
-	else
-		export PATH="/opt/anaconda/bin:$PATH"
-	fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+
+
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then exec startx > ~/.Xoutput 2>&1
 fi
-
 
 
 bindkey '^[^[[D' backward-word
@@ -80,3 +67,19 @@ bindkey '^j' down-line-or-history
 bindkey '^l' autosuggest-accept
 bindkey '^p' clear-screen
 bindkey '^H' backward-delete-word
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/etc/profile.d/conda.sh" ]; then
+        . "/usr/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
