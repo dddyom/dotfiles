@@ -15,6 +15,7 @@ Plug 'alvan/vim-closetag'							"AUTOCLOSE TAGS
 Plug 'nanozuki/tabby.nvim'							"TABS
 Plug 'junegunn/goyo.vim'							"READER MODE
 Plug 'tpope/vim-fugitive'							"GIT
+Plug 'preservim/vimux'								"TMUX
 
 Plug 'kyazdani42/nvim-web-devicons'					"ICONS
 Plug 'ryanoasis/vim-devicons'						"ICONS
@@ -71,6 +72,9 @@ let mapleader = "\<Space>"
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
+"TMUX
+map <Leader>t :VimuxPromptCommand<CR>
+map <leader>tz :VimuxZoomRunner<CR>
 
 "CSS COLORS
 let g:Hexokinase_highlighters = [ 'sign_column' , 'backgroundfull' ]
@@ -84,7 +88,6 @@ noremap <silent> <F3> :Autoformat<CR>
 "OPEN FILE IN CUR DIR F6
 nnoremap <F6> :e <C-R> %:h/
 
-
 inoremap jk <Esc>
 inoremap  <C-l> <Esc>la
 nnoremap <silent> ,<leader> :nohlsearch<CR>
@@ -93,8 +96,12 @@ nnoremap <silent> ,<leader> :nohlsearch<CR>
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 
-map t <Plug>Sneak_s
-map T <Plug>Sneak_S
+
+map <C-f> <Plug>Sneak_s
+map <C-S-f> <Plug>Sneak_S
+
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 "SEARCH
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -333,9 +340,6 @@ require("autosave").setup({
  -- AUTOCOMLETE --
 local cmp = require'cmp'
 cmp.setup {
-	completion = {
-		autocomplete = false
-		},
 	snippet = {
 		expand = function(args)
 		vim.fn["UltiSnips#Anon"](args.body)

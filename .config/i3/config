@@ -161,11 +161,12 @@ bindsym $mod+s										layout stacking
 bindsym $mod+m										layout tabbed
 bindsym $mod+e										layout toggle split
 
-bindsym $mod+Shift+space							floating toggle
-bindsym $mod+Shift+f								floating enable
-bindsym $mod+Shift+d								floating disable 
+bindsym $mod+Shift+f								floating toggle; \
+													resize set 800 500; \
+													move position 100 100 
 
-#bindsym $mod+a										focus parent
+bindsym $mod+Shift+a										focus parent
+bindsym $mod+Shift+d										focus child
 
 bindsym $mod+1										workspace number $ws1
 bindsym $mod+2										workspace number $ws2
@@ -195,22 +196,21 @@ bindsym $mod+Shift+0	move container to			workspace number $ws0
 bindsym $mod+r										mode "resize"
 bindsym $mod+Shift+g								mode "$mode_gaps"
 bindsym $modShift+m mode "move" focus floating
+
 mode "resize" {
-	bindsym h			resize shrink				width 50 px or 50 ppt
-	bindsym j			resize grow					height 50 px or 50 ppt
-	bindsym k			resize shrink				height 50 px or 50 ppt
-	bindsym l			resize grow					width 50 px or 50 ppt
+    bindsym h										resize shrink width 20 px or 20 ppt
+    bindsym j										resize grow height 20 px or 20 ppt
+    bindsym k										resize shrink height 20 px or 20 ppt
+    bindsym l										resize grow width 20 px or 20 ppt
 
-	bindsym Left		resize shrink				width 50 px or 50 ppt
-	bindsym Down		resize grow					height 50 px or 50 ppt
-	bindsym Up			resize shrink				height 50 px or 50 ppt
-	bindsym Right		resize grow					width 50 px or 50 ppt
+    bindsym Left									resize shrink width 20 px or 20 ppt
+    bindsym Down									resize grow height 20 px or 20 ppt
+    bindsym Up										resize shrink height 20 px or 20 ppt
+    bindsym Right									resize grow width 20 px or 20 ppt
 
-	bindsym Return									mode "default"
-	bindsym Escape									mode "default"
-	bindsym $mod+r									mode "default"
+    bindsym Return									mode "default"
+    bindsym Escape									mode "default"
 }
-
 mode "$mode_gaps" {
 	bindsym o										mode "$mode_gaps_outer"
 	bindsym i										mode "$mode_gaps_inner"

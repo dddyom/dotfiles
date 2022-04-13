@@ -4,9 +4,7 @@ export NOTES_DIRECTORY="$HOME/Sync/Documents/notes"
 export ZSH="$HOME/.oh-my-zsh"
 export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 export EDITOR=nvim
-export PATH=$PATH:$HOME/.local/bin
-
-
+export PATH=$PATH:$HOME/.local/bin:$HOME/.local/share/go/bin 
 plugins=( 
 	sudo
 	copyfile
@@ -15,9 +13,6 @@ plugins=(
 	git
     zsh-autosuggestions
 )
-
-
-
 
 #zstyle ':omz:update' mode disabled  # disable automatic updates
 setopt extendedglob
@@ -52,6 +47,9 @@ alias off="shutdown now"
 alias cpf="copyfile"
 alias srcz="source ~/.zshrc"
 
+alias ta="tmux a -t"
+alias tn="tmux new -t"
+alias tkill="tmux kill-server"
 
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then exec startx > ~/.Xoutput 2>&1
 fi
