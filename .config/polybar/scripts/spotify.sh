@@ -2,7 +2,6 @@
 
 if [ $(pgrep spt)>'0' ]
 then
-	sleep 30
   zscroll -l 20 \
         --delay 0.5 \
         --scroll-padding "  " \

@@ -85,6 +85,9 @@ noremap <silent>  <F7> :Goyo<CR>
 "AUTOFORMAT F3
 noremap <silent> <F3> :Autoformat<CR>
 
+"PYTHON INTERPRETER
+noremap <F4> :! python % <CR>
+
 "OPEN FILE IN CUR DIR F6
 nnoremap <F6> :e <C-R> %:h/
 
