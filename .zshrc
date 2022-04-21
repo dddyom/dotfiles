@@ -1,5 +1,7 @@
 ZSH_THEME="garyblessington"
 
+export GPG_TTY=`tty`
+export PASSWORD_STORE_GPG_OPTS=--no-throw-keyids
 export NOTES_DIRECTORY="$HOME/Sync/Documents/notes"
 export ZSH="$HOME/.oh-my-zsh"
 export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
@@ -12,6 +14,7 @@ plugins=(
 	copybuffer
 	git
     zsh-autosuggestions
+	extract
 )
 
 #zstyle ':omz:update' mode disabled  # disable automatic updates
@@ -26,8 +29,9 @@ alias man ="batman"
 alias grep="batgrep"
 alias less="batpipe"
 alias cat="bat --theme OneHalfDark"
-alias rm='move_to_trash'
-alias cT='\rm -rf  $HOME/.local/share/.Trash/**/* && echo -n Trash is empty | pv -qL 30 '
+alias rm='trash'
+alias cT='\rm -rf  $HOME/.local/share/Trash/**/* $HOME/.local/share/Trash/**/.* && echo -n Trash is empty | pv -qL 30 '
+
 
 alias ra="ranger"
 alias td="todo.sh"
@@ -37,7 +41,7 @@ alias gdot="cd ~/dotfiles/"
 alias gn="cd ~/Sync/Documents/notes/"
 alias gw="cd ~/code/"
 alias gdw="cd ~/brave/"
-alias gT="cd ~/.local/share/.Trash/"
+alias gT="cd ~/.local/share/Trash/files/"
 
 alias l="ls -a"
 alias mkdir="mkdir -p"

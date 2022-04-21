@@ -1,10 +1,10 @@
 #========= VARIABLES =========
 set $mod											Mod4			
-set $polybar										"$HOME/.config/polybar/launch.sh"
 set $Xres											"xrdb $HOME/.Xresources"
 set $theme_light									"$HOME/.config/i3/wallpaper.sh light"
 set $theme_dark										"$HOME/.config/i3/wallpaper.sh dark"
 set $picom											"picom -cfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2"
+set $polybar										"$HOME/.config/polybar/launch.sh"
 set $polybar_toggle									polybar-msg cmd toggle
 set $sleep											sleep 0.2s
 set $clipboard										rofi -modi "clipboard:greenclip print" 	-show clipboard
@@ -90,8 +90,14 @@ exec --no-startup-id								$clipboard_daemon
 
 
 #====== STARTING KEYS ========
-bindsym $mod+i			exec --no-startup-id		$theme_light
-bindsym $mod+u			exec --no-startup-id		$theme_dark
+bindsym $mod+i			exec --no-startup-id		$theme_light \
+						exec --no-startup-id		&& $polybar
+
+bindsym $mod+Control+g			exec --no-startup-id		pkill picom
+bindsym $mod+g			exec --no-startup-id		$picom
+
+bindsym $mod+u			exec --no-startup-id		$theme_dark \
+						exec --no-startup-id		&& $polybar
 bindsym $mod+d			exec --no-startup-id		$rofi_menu
 bindsym $mod+Escape		exec --no-startup-id		$powermenu	
 bindsym $mod+c			exec --no-startup-id		$clipboard
@@ -107,7 +113,6 @@ bindsym $mod+t			exec --no-startup-id		$telegram
 bindsym $mod+p			exec --no-startup-id		keepassxc
 bindsym $mod+Shift+s	exec --no-startup-id		syncthing
 bindsym $mod+Control+s	exec --no-startup-id		pkill syncthing
-bindsym $mod+g			exec --no-startup-id		thunderbird
 bindsym Menu			exec --no-startup-id		$terminal2; \
 						exec --no-startup-id		$sleep\
 						&& i3-msg					floating enable \

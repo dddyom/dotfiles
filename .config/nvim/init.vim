@@ -89,7 +89,7 @@ noremap <silent> <F3> :Autoformat<CR>
 noremap <F4> :! python % <CR>
 
 "OPEN FILE IN CUR DIR F6
-nnoremap <F6> :e <C-R> %:h/
+nnoremap <F6> :tabnew 
 
 inoremap jk <Esc>
 inoremap  <C-l> <Esc>la
@@ -343,6 +343,9 @@ require("autosave").setup({
  -- AUTOCOMLETE --
 local cmp = require'cmp'
 cmp.setup {
+   view = {            
+      entries = "wildmenu" -- can be "custom", "wildmenu" or "native"
+   },
 	snippet = {
 		expand = function(args)
 		vim.fn["UltiSnips#Anon"](args.body)
