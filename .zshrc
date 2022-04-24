@@ -36,12 +36,13 @@ alias cT='\rm -rf  $HOME/.local/share/Trash/**/* $HOME/.local/share/Trash/**/.* 
 alias ra="ranger"
 alias td="todo.sh"
 alias n="notes"
-alias neofetch='neofetch --source ~/.config/neofetch/ascii.logo'
-alias gdot="cd ~/dotfiles/"
-alias gn="cd ~/Sync/Documents/notes/"
-alias gw="cd ~/code/"
-alias gdw="cd ~/brave/"
-alias gT="cd ~/.local/share/Trash/files/"
+alias neofetch='neofetch --source $HOME/.config/neofetch/ascii.logo'
+alias gdot="cd $HOME/dotfiles/"
+alias gn="cd $HOME/Sync/Documents/notes/"
+alias gw="cd $HOME/code/"
+alias gs="cd $HOME/code/sandbox/"
+alias gdw="cd $HOME/brave/"
+alias gT="cd $HOME/.local/share/Trash/files/"
 
 alias l="ls -a"
 alias mkdir="mkdir -p"
@@ -49,13 +50,13 @@ alias q="exit"
 alias c="clear"
 alias off="shutdown now"
 alias cpf="copyfile"
-alias srcz="source ~/.zshrc"
+alias srcz="source $HOME/.zshrc"
 
 alias ta="tmux a -t"
 alias tn="tmux new -t"
 alias tkill="tmux kill-server"
 
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then exec startx > ~/.Xoutput 2>&1
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then exec startx > $HOME/.Xoutput 2>&1
 fi
 
 
