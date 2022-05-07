@@ -21,9 +21,10 @@ plugins=(
 setopt extendedglob
 
 source $ZSH/oh-my-zsh.sh
-
 move_to_trash() { cp -r "$@" $HOME/.local/share/.Trash && \rm -r "$@"}
-
+alias pwd="ptpwd"
+alias ls="ptls"
+alias cp="ptcp"
 alias fzf="fzf --preview 'bat --theme OneHalfDark --color=always --style=numbers --line-range=:500 {}'"
 alias man ="batman"
 alias grep="batgrep"
@@ -39,10 +40,9 @@ alias n="notes"
 alias neofetch='neofetch --source $HOME/.config/neofetch/ascii.logo'
 alias gdot="cd $HOME/dotfiles/"
 alias gn="cd $HOME/Sync/Documents/notes/"
-alias gw="cd $HOME/code/"
-alias gs="cd $HOME/code/sandbox/"
 alias gdw="cd $HOME/brave/"
 alias gT="cd $HOME/.local/share/Trash/files/"
+alias cc="cd $HOME/code"
 
 alias l="ls -a"
 alias mkdir="mkdir -p"
